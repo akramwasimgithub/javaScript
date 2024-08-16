@@ -54,7 +54,14 @@
         Reset Cart
     </button>
     <button onclick="
+        if(cartQuantity>0){
         cartQuantity --;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+    }
+    else{
+        console.log('Cart is empty')
+    }
+
         console.log(`Cart Quantity: ${cartQuantity}`);
     ">
         Remove from cart
