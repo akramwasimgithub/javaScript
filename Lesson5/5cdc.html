@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resturant order</title>
+</head>
+<body>
+    <p>
+        Welcome to our resturant!
+    </p>
+    <ol>
+        <li>
+            <button onclick="
+                coffePrice += 5;
+                console.log(`coffee Price: $${coffePrice}`);
+                ">
+                Coffee
+            </button>
+        </li> 
+        <li>
+            <button onclick="
+                bagelPrice +=3;
+                console.log(`bagels price: $${bagelPrice}`); 
+                ">
+                Bagels
+            </button>
+        </li>
+        <li>
+            <button onclick="
+                soupPrice += 9;
+                console.log(`Soup Price: $${soupPrice}`);
+                ">
+                Soup
+            </button>
+        </li>
+         </ol>
+        <button style="background-color: orange;" onclick="
+            cost = coffePrice + bagelPrice + soupPrice;
+            console.log(`Cost of food: ${cost}`);
+            tax = cost * 0.1;
+            totalCost= cost + tax;
+            console.log(`Total Cost of food with tax(10%): $${totalCost}`);
+            ">
+        
+            Calculate
+    </button>
+    <script>
+        let coffePrice=0;
+        let bagelPrice=0;
+        let soupPrice=0;
+        let cost=0;
+        let tax=0;
+        //console.log(`Total Cost: ${totalCost}`);
+    </script>
+</body>
+</html>
