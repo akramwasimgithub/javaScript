@@ -6,31 +6,34 @@
     <title>Calculator</title>
     <style>
         .operator{
-            background-color: aqua;
+            background-color: rgb(250, 193, 101);
+        }
+        .number{
+            background-color: rgb(220, 248, 238);
         }
     </style>
 </head>
 <body>
     <p>
-        <button onclick="
+        <button class="number" onclick="
             calculatoion +='1';
             console.log(calculatoion);
             ">
             1
         </button>
-        <button onclick="
-        calculatoion +='2';
+        <button class="number" onclick="
+            calculatoion +='2';
             console.log(calculatoion);
-        ">
+            ">
             2
         </button>
-        <button onclick="
-        calculatoion +='3';
+        <button class="number" onclick="
+            calculatoion +='3';
             console.log(calculatoion);
-        ">
+            ">
             3
         </button>
-        <button onclick="
+        <button class="number"onclick="
             calculatoion += '4';
             console.log(calculatoion); 
             ">
@@ -38,28 +41,28 @@
         </button>
     </p>
     <p>
-        <button onclick="
-        calculatoion += '5';
-        console.log(calculatoion); 
-        ">
+        <button class="number" onclick="
+            calculatoion += '5';
+            console.log(calculatoion); 
+            ">
             5
         </button>
-        <button onclick="
-        calculatoion += '6';
-        console.log(calculatoion); 
-        ">
+        <button class="number" onclick="
+            calculatoion += '6';
+            console.log(calculatoion); 
+            ">
             6
         </button>
-        <button onclick="
-        calculatoion += '7';
-        console.log(calculatoion); 
-        ">
+        <button class="number" onclick="
+            calculatoion += '7';
+            console.log(calculatoion); 
+            ">
             7
         </button>
-        <button onclick="
-        calculatoion += '8';
-        console.log(calculatoion); 
-        ">
+        <button class="number" onclick="
+            calculatoion += '8';
+            console.log(calculatoion); 
+            ">
             8
         </button>
     </p>
@@ -70,16 +73,16 @@
             ">
             +
         </button>
-        <button onclick="
-        calculatoion += '9';
-        console.log(calculatoion); 
-        ">
+        <button class="number" onclick="
+            calculatoion += '9';
+            console.log(calculatoion); 
+            ">
             9
         </button>
-        <button onclick="
-        calculatoion += '0';
-        console.log(calculatoion); 
-        ">
+        <button class="number" onclick="
+            calculatoion += '0';
+            console.log(calculatoion); 
+            ">
             0
         </button>
         <button  class="operator" onclick="
@@ -91,29 +94,29 @@
     </p>
     <p>
         <button  class="operator" onclick="
-        calculatoion +=' * ';
-        console.log(calculatoion);
-        ">
-        *
+            calculatoion +=' * ';
+            console.log(calculatoion);
+            ">
+            *
         </button>
-        <button  class="operator" onclick="
-        calculatoion +=' / ';
-        console.log(calculatoion);
-        ">
-        /
-        </button>
-        <button style="background-color: greenyellow;" onclick="
-        calculatoion = eval(calculatoion); // eval(calculatoion) covert calculatoion string into actual math 
-        console.log(calculatoion);
-        ">
+        <button style="background-color:        greenyellow;" onclick="
+            calculatoion = eval(calculatoion); // eval(calculatoion) covert calculatoion string into actual math 
+            console.log(calculatoion);
+            ">
             =
         </button>
-        <button style="background-color: red;" onclick="
-        calculatoion = '';
-        console.log(calculatoion);
-        ">
+        <button style="background-color: rgb(251, 152, 152);" onclick="
+            calculatoion = '';
+            console.log(calculatoion);
+            ">
             C
-     </button>
+        </button>
+        <button  class="operator" onclick="
+            calculatoion +=' / ';
+            console.log(calculatoion);
+            ">
+            /
+        </button>
     </p>
    
 
