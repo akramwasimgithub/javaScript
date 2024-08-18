@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Message</title>
+</head>
+<body>
+    <script>
+        let currentDate = new Date();
+        let currentHour = currentDate.getHours();
+        let currentMinute = currentDate.getMinutes();
+        const name='Wasim';
+        console.log(`Time: ${currentHour}:${currentMinute}`);
+
+    if (currentHour >= 6 && currentHour < 12) {
+        console.log(`Good Morning! ${name}`);
+    }
+    else if (currentHour > 12 && currentHour < 18 ) {
+        console.log(`Good after noon! ${name}`);
+    }
+    else{
+        console.log(`Good after night! ${name}`);
+    }   
+        
+    </script>
+     
+</body>
+</html>
