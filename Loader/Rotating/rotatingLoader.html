@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Rotating Loader</title>
+    <style>
+        /* Loader container */
+        .loader {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto; /* Centers the loader */
+        }
+
+        /* Base logo (non-rotating part) */
+        .loader .base {
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;  /* Optional: makes the image circular */
+            animation: spin 3s linear infinite; /* Rotation animation */
+        }
+
+        /* Rotating "J" */
+        .loader .j-part {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            opacity: 45%;
+            border-radius: 50%;
+            animation: rotate-wheel 2s linear infinite;
+        }
+
+        /* Rotating "A" */
+        .loader .a-part {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            opacity: 40%;
+            border-radius: 50%;
+            animation: rotate-wheel 2s linear infinite reverse; /* Rotates opposite to "J" */
+        }
+
+        /* Keyframes for rotation */
+        @keyframes rotate-wheel {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <!-- Non-rotating base -->
+        <img src="jfa-logo.png" alt="Base Logo" class="base">
+
+        <!-- Rotating J -->
+        <img src="J.png" alt="Rotating J" class="j-part">
+
+        <!-- Rotating A -->
+        <img src="a.png" alt="Rotating A" class="a-part">
+    </div>
+</body>
+</html>
