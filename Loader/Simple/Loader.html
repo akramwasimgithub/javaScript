@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Loader</title>
+    <style>
+        /* Loader container */
+        .loader {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto; /* Centers the loader */
+            position: relative; /* Required for child positioning */
+        }
+
+        /* Rotating image */
+        .loader img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;  /* Optional: makes the image circular */
+            animation: spin 3s linear infinite; /* Rotation animation */
+        }
+
+        /* Keyframes for rotation */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+         /* Keyframes for pulsating effect */
+         @keyframes pulse {
+            0%, 100% {
+                transform: scale(1); /* Normal size */
+            }
+            50% {
+                transform: scale(1.2); /* Slightly bigger */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader with rotating image -->
+    <div class="loader">
+        <img src="jfa-logo.gif" alt="Rotating and Pulsating Loader">
+    </div>
+</body>
+</html>
+
