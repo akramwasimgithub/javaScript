@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #282c34;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+#burstButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#wordContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.letter {
+    font-size: 48px;
+    font-weight: bold;
+    color: #f63d04;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f3213d;
+    border-radius: 100%;
+    pointer-events: none;
+}

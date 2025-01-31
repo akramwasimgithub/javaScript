@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 16px;
+    overflow: hidden;
+  }
+  
+  .login-container {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.9), rgba(169, 169, 169, 0.8)); /* Grey gradient */
+    padding: 20px;
+    border-radius: 150% 150% 60% 60% / 60% 60% 40% 40%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    height: 400px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+    border: 3px solid #3a94fb; /* Grey border */
+  }
+  
+  /* Bottle cap */
+  .login-container::before {
+    content: '';
+    position: absolute;
+    top: -25px; /* Adjust cap position */
+    left: 50%;
+    transform: translateX(-50%) rotate(var(--cap-rotation, 0deg));
+    width: 80px; /* Wider cap */
+    height: 20px; /* Shorter height for semi-cylinder */
+    background: #000; /* Black color */
+    border-radius: 10px 10px 0 0; /* Semi-cylinder shape */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333; /* Darker border for cap */
+    transition: transform 1s ease;
+  }
+  
+  /* Bottle neck */
+  .login-container::after {
+    content: '';
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 50px;
+    background: #343333; /* Grey neck color */
+    border-radius: 10px;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes burst {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--burst-x, 0), var(--burst-y, 0)) rotate(var(--burst-rotate, 0deg));
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translate(var(--burst-x, 0), var(--burst-y, 0)) rotate(var(--burst-rotate, 0deg));
+      opacity: 0;
+    }
+    100% {
+      transform: translate(var(--fall-x, 0), var(--fall-y, 0)) rotate(var(--fall-rotate, 0deg));
+      opacity: 1;
+    }
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
