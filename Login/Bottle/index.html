@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Bottle Login Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <!-- Three.js Container -->
+  <div id="three-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+
+  <!-- Login Container -->
+  
+  <script src="script.js"></script>
+  <script>
+    // Scene Setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true }); // Transparent background
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('three-container').appendChild(renderer.domElement);
+
+    // Lighting
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(1, 1, 1).normalize();
+    scene.add(light);
+
+    // Material
+    const material = new THREE.MeshStandardMaterial({ color: 0xaaaaaa, metalness: 0.6, roughness: 0.4 });
+
+    // Bottle Body (Extruded Cylinder)
+    const bodyGeometry = new THREE.CylinderGeometry(1.5, 1.6, 5, 32);
+    const bottleBody = new THREE.Mesh(bodyGeometry, material);
+    scene.add(bottleBody);
+
+    // Neck of the Bottle
+    const neckGeometry = new THREE.CylinderGeometry(0.8, 1.2, 1.5, 32);
+    const bottleNeck = new THREE.Mesh(neckGeometry, material);
+    bottleNeck.position.y = 3;
+    scene.add(bottleNeck);
+
+    // Cap
+    const capGeometry = new THREE.CylinderGeometry(0.9, 0.9, 0.6, 32);
+    const cap = new THREE.Mesh(capGeometry, material);
+    cap.position.y = 4;
+    scene.add(cap);
+
+    // Handle (Torus Shape)
+    const handleGeometry = new THREE.TorusGeometry(0.5, 0.1, 16, 32);
+    const handle = new THREE.Mesh(handleGeometry, material);
+    handle.position.set(1.5, 3.5, 0);
+    handle.rotation.z = Math.PI / 2;
+    scene.add(handle);
+
+    // Camera Position
+    camera.position.z = 10;
+
+    // Animation Loop
+    function animate() {
+      requestAnimationFrame(animate);
+      bottleBody.rotation.y += 0.01;
+      bottleNeck.rotation.y += 0.01;
+      cap.rotation.y += 0.01;
+      handle.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle Window Resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
