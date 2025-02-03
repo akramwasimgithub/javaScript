@@ -40,59 +40,123 @@ nav a:hover {
     color: #d4af37; /* Gold accent on hover */
 }
 
+/* Hero Section */
 .hero {
-    background-image: url('/Users/akramwasim/projects & learning/javaScript/Homepage/images/Yellow.png');
+    position: relative;
+    height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+/* Carousel Container */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Carousel Inner Container */
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Carousel Items */
+.carousel-item {
+    min-width: 100%;
+    height: 500px; /* Match hero height */
     background-size: cover;
     background-position: center;
-    height: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff; /* White text for contrast */
-    background-color: #196e0880; /* Dark overlay for readability */
 }
 
-/* Overlay to darken the background image */
-.hero::before {
-    content: '';
-    position: centre;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(3, 116, 3, 0.5); /* Dark overlay for better text visibility */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Carousel Controls */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel:hover .carousel-control {
+    opacity: 1;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #fff;
+}
+
+/* Hero Content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
     z-index: 1;
 }
-
-.hero-content {
-    position: relative;
-    z-index: 2; /* Ensure text is above the overlay */
-}
-
 
 .hero-content h1 {
     font-size: 48px;
     margin: 0;
-    color: #ffffff; /* White text */
+    font-family: 'Playfair Display', serif;
 }
 
 .hero-content p {
     font-size: 24px;
     margin: 10px 0 20px;
-    color: #ffffff; /* White text */
 }
 
 .cta-button {
-    background-color: #ffffff; /* Gold accent for buttons */
-    color: #202020; /* White text */
+    background-color: #d4af37;
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 500;
     transition: background-color 0.3s ease;
 }
-
 .cta-button:hover {
     background-color: #196e0880; /* Darker gold on hover */
 }
