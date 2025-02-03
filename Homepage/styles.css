@@ -13,7 +13,7 @@ header {
     align-items: center;
     padding: 20px;
     background-color: #ffffff; /* White background for header */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(37, 129, 66, 0.1);
 }
 
 .logo {
@@ -41,17 +41,35 @@ nav a:hover {
 }
 
 .hero {
-    background-image: url('hero-bg.jpg');
+    background-image: url('/Users/akramwasim/projects & learning/javaScript/Homepage/images/Yellow.png');
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #ffffff; /* White text for contrast */
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    background-color: #196e0880; /* Dark overlay for readability */
 }
+
+/* Overlay to darken the background image */
+.hero::before {
+    content: '';
+    position: centre;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(3, 116, 3, 0.5); /* Dark overlay for better text visibility */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensure text is above the overlay */
+}
+
 
 .hero-content h1 {
     font-size: 48px;
@@ -66,8 +84,8 @@ nav a:hover {
 }
 
 .cta-button {
-    background-color: #d4af37; /* Gold accent for buttons */
-    color: #ffffff; /* White text */
+    background-color: #ffffff; /* Gold accent for buttons */
+    color: #202020; /* White text */
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -76,7 +94,7 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #b38f2a; /* Darker gold on hover */
+    background-color: #196e0880; /* Darker gold on hover */
 }
 
 .collections {
@@ -98,7 +116,7 @@ nav a:hover {
 
 .product {
     position: relative;
-    background-color: #ffffff;
+    background-color: #196e0880;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
