@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+window.addEventListener('scroll', function () {
+    const header = document.getElementById('mainHeader');
+    if (window.scrollY > 50) { // Adjust the scroll threshold as needed
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+});
 document.addEventListener('DOMContentLoaded', function () {
     const carouselInner = document.querySelector('.carousel-inner');
     const carouselItems = document.querySelectorAll('.carousel-item');
