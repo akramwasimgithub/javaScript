@@ -33,12 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const dots = document.querySelectorAll('.dot');
 
     let currentIndex = 0;
-    thumbnail.addEventListener('mouseover', function () {
-        const mainImage = this.closest('.product-image').querySelector('.main-image');
-        const newImageSrc = this.getAttribute('data-main');
-        mainImage.setAttribute('src', newImageSrc);
-    });
-
+    let autoSlideInterval;
+    
     // Update Carousel Position
     function updateCarousel() {
         carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -54,22 +50,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Previous Slide
-    prevButton.addEventListener('click', () => {
+    function prevSlide() {
         currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
         updateCarousel();
+    }
+
+    // Auto Slide (Optional)
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    }
+    // Stop auto-slide on interaction
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Event listeners
+    prevButton.addEventListener('click', () => {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
     });
 
-    // Dot Navigation
+    nextButton.addEventListener('click', () => {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+    });
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
+            stopAutoSlide();
             currentIndex = index;
             updateCarousel();
+            startAutoSlide();
         });
     });
 
-    // Auto Slide (Optional)
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % carouselItems.length;
-        updateCarousel();
-    }, 5000); // Change slide every 5 seconds
+    // Initialize auto-slide
+    startAutoSlide();
 });
