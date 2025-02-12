@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxePurses - Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="mainHeader">
+        <div class="logo">LuxePurses</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="Collection.html">Collections</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Cart (<span class="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="shop-main">
+        <div class="shop-header">
+            <h1>Premium Handbag Collection</h1>
+            <div class="shop-controls">
+                <select id="sortBy">
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="shop-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/Users/akramwasim/projects & learning/javaScript/Homepage/images/black.png" alt="Elegant Evening Handbag" class="main-image">
+                    <div class="thumbnail-container">
+                        <img src="/Users/akramwasim/projects & learning/javaScript/Homepage/images/black1.png" alt="Thumbnail" class="thumbnail">
+                        <img src="/Users/akramwasim/projects & learning/javaScript/Homepage/images/black2.png" alt="Thumbnail" class="thumbnail">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Elegant Evening Handbag</h3>
+                    <p class="price">₹150.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/Users/akramwasim/projects & learning/javaScript/Homepage/images/Reaction.png" alt="Modern Clutch" class="main-image">
+                    <div class="thumbnail-container">
+                        <img src="/Users/akramwasim/projects & learning/javaScript/Homepage/images/Reaction1.png" alt="Thumbnail" class="thumbnail">
+                        <img src="/Users/akramwasim/projects & learning/javaScript/Homepage/images/Reaction2.png" alt="Thumbnail" class="thumbnail">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Modern Clutch</h3>
+                    <p class="price">₹180.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Add more product cards following the same structure -->
+        </div>
+    </section>
+
+    <footer>
+        <!-- Keep the same footer as index.html -->
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="social-media">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="https://x.com/home">X/Twitter</a>
+        </div>
+        <p>© 2025 LuxePurses. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Shop-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add to Cart functionality
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartCount = document.querySelector('.cart-count');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    let currentCount = parseInt(cartCount.textContent);
+                    cartCount.textContent = currentCount + 1;
+                    
+                    // Add animation feedback
+                    this.classList.add('added');
+                    setTimeout(() => {
+                        this.classList.remove('added');
+                    }, 1000);
+                });
+            });
+
+            // Sorting functionality
+            const sortSelect = document.getElementById('sortBy');
+            sortSelect.addEventListener('change', function() {
+                const products = Array.from(document.querySelectorAll('.product-card'));
+                const sorted = products.sort((a, b) => {
+                    const priceA = parseFloat(a.querySelector('.price').textContent.replace('₹', ''));
+                    const priceB = parseFloat(b.querySelector('.price').textContent.replace('₹', ''));
+                    
+                    return this.value === 'price-asc' ? priceA - priceB : priceB - priceA;
+                });
+
+                const grid = document.querySelector('.shop-grid');
+                grid.innerHTML = '';
+                sorted.forEach(product => grid.appendChild(product));
+            });
+        });
+    </script>
+</body>
+</html>
