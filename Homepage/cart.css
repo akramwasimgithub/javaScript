@@ -1,0 +1,49 @@
+/* Updated Cart Item Styles */
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid #eee;
+}
+
+.item-details {
+    flex-grow: 1;
+    display: grid;
+    gap: 8px;
+}
+
+.product-meta {
+    font-size: 0.9em;
+    color: #666;
+    display: grid;
+    gap: 4px;
+}
+
+.product-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.product-meta i {
+    font-style: normal;
+    color: #888;
+}
+
+.size-indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: inline-block;
+    border: 1px solid #ddd;
+}
+
+.color-indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #ddd;
+}
