@@ -98,3 +98,68 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial render
     renderCartItems();
 });
+// Updated sample cart data
+const cartItems = [
+    {
+        id: 1,
+        name: "Elegant Evening Handbag",
+        price: 150.00,
+        image: "images/black.png",
+        color: "#000000",
+        size: "Medium",
+        material: "Genuine Leather",
+        sku: "LP-2024-BLK",
+        quantity: 1
+    },
+    {
+        id: 2,
+        name: "Casual Chic Handbag",
+        price: 120.00,
+        image: "images/Green.png",
+        color: "#228B22",
+        size: "Large",
+        material: "Vegan Leather",
+        sku: "LP-2024-GRN",
+        quantity: 1
+    }
+];
+
+// Updated render function
+function renderCartItems() {
+    cartContainer.innerHTML = '';
+    cartItems.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-details">
+                <h3>${item.name}</h3>
+                <div class="product-meta">
+                    <span>
+                        <i>Color:</i> 
+                        <span class="color-indicator" style="background: ${item.color}"></span>
+                    </span>
+                    <span>
+                        <i>Size:</i> 
+                        <span class="size-indicator">${item.size[0]}</span>
+                        ${item.size}
+                    </span>
+                    <span><i>Material:</i> ${item.material}</span>
+                    <span><i>SKU:</i> ${item.sku}</span>
+                </div>
+                <p class="price">₹${item.price.toFixed(2)}</p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" value="${item.quantity}" min="1" class="quantity-input">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+            </div>
+            <button class="remove-btn">×</button>
+        `;
+        cartContainer.appendChild(cartItem);
+    });
+    
+    addEventListeners();
+    updateCartTotals();
+    updateCartCount();
+}
